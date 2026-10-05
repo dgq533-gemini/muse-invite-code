@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Muse 邀请码 · 社区共享码池</title>
+  <meta name="description" content="Muse 邀请码社区共享池，免费领取、复制、反馈。8000+ 访客，3900+ 成功兑换。" />
+  <meta name="keywords" content="Muse 邀请码, Muse AI, Meta Muse, 邀请码, Muse 兑换码" />
+  <meta name="author" content="Muse Invites" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muse.monk.party/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Muse 邀请码 · 社区共享码池" />
+  <meta property="og:description" content="免费领取 Muse 邀请码，社区共享，实时反馈。" />
+  <meta property="og:url" content="https://muse.monk.party/" />
+  <meta property="og:site_name" content="Muse Invites" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muse 邀请码 · 社区共享码池" />
+  <meta name="twitter:description" content="免费领取 Muse 邀请码，社区共享，实时反馈。" />
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Muse 邀请码 · 社区共享码池",
+    "url": "https://muse.monk.party/",
+    "description": "免费领取 Muse 邀请码，社区共享，实时反馈。"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- 科技感背景 -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+  </div>
+
+  <!-- 导航 -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-name">Muse invites</span>
+      </a>
+      <div class="nav-right">
+        <a href="#share" class="nav-link">分享</a>
+        <a href="#how" class="nav-link">说明</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">邀请码</h1>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" id="visitorCount">8,163</span>
+          <span class="stat-label">访客</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" id="successCount">3,944</span>
+          <span class="stat-label">人成功兑换</span>
+        </div>
+      </div>
+      <p class="hero-sub">
+        <span id="lastShare">3 天前</span> 有人分享了最新邀请码
+      </p>
+    </section>
+
+    <!-- 排序标签 -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-sort="likely" role="tab">最可能有效</button>
+      <button class="tab" data-sort="newest" role="tab">最新</button>
+      <button class="tab" data-sort="expired" role="tab">已失效</button>
+    </div>
+
+    <!-- 分享区 -->
+    <section id="share" class="panel share-panel">
+      <h2 class="panel-title">先传出去</h2>
+      <p class="panel-desc">分享的人越多，你的邀请码被使用的概率就越大。</p>
+      <div class="share-btns">
+        <button id="shareCodeBtn" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          分享我的邀请码
+        </button>
+        <button id="shareXBtn" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          分享到 X
+        </button>
+      </div>
+    </section>
+
+    <!-- 随机抽取 -->
+    <section class="panel draw-panel">
+      <h2 class="panel-title">抽一个邀请码</h2>
+      <p class="panel-desc">不确定选哪个？随机抽一个能用的。</p>
+      <div class="draw-box" id="drawBox">
+        <span class="draw-placeholder" id="drawPlaceholder">点击下方按钮抽取</span>
+        <span class="draw-code" id="drawCode"></span>
+      </div>
+      <div class="draw-meta" id="drawMeta"></div>
+      <button id="drawBtn" class="btn btn-primary btn-block btn-lg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1.06 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+        抽一个邀请码
+      </button>
+      <div class="draw-actions" id="drawActions">
+        <button id="drawCopyBtn" class="btn btn-primary">复制码</button>
+        <button id="drawAgainBtn" class="btn btn-ghost">再抽一个</button>
+      </div>
+    </section>
+
+    <!-- 邀请码列表 -->
+    <section class="code-list" id="codeList"></section>
+
+    <!-- 排名说明 -->
+    <section id="how" class="panel info-panel">
+      <h2 class="panel-title">怎么排序</h2>
+      <ol class="info-list">
+        <li>每个邀请码可使用 30 次，分享后 48 小时内有效。</li>
+        <li>近期确认有效且剩余次数多的码，排名更靠前。</li>
+        <li>「约 N 次」是估算值：每次「有效」计 1 次，每次静默复制计 0.5 次。</li>
+        <li>少量位置留给推荐码，其余按正常规则排序。</li>
+      </ol>
+    </section>
+
+    <!-- 参与说明 -->
+    <section class="panel info-panel">
+      <h2 class="panel-title">怎么参与</h2>
+      <ol class="info-list">
+        <li>不确定选哪个？点击上方「抽一个邀请码」随机获取。</li>
+        <li>复制邀请码，去 Muse 尝试兑换，然后回来标记结果。</li>
+        <li>被 2 人标记为失效的邀请码会自动下架。</li>
+        <li>每台设备每天可分享 5 个码、投票 10 次，投票可更改。</li>
+        <li>如果没人用你的码，点击「推荐」让更多人看到。</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- 分享邀请码弹窗 -->
+  <div id="shareModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+      </div>
+      <h3 class="modal-title">分享你的邀请码</h3>
+      <p class="modal-desc">把你的 Muse 邀请码留给下一位朋友，让更多人有机会体验。</p>
+      <form id="shareForm">
+        <div class="form-group">
+          <label for="shareCodeInput">你的 Muse 邀请码</label>
+          <input type="text" id="shareCodeInput" name="code" maxlength="12" placeholder="例如 K4M2QP" autocomplete="off" pattern="[A-Za-z0-9]{4,12}" required />
+          <span class="form-hint">4–12 位英文字母或数字，无需提供账号信息。</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">提交邀请码</button>
+        <p class="form-warning">邀请码会公开展示，也可能很快用完。不要为邀请码付费。</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="brand-mark"></span>
+      <span>Muse invites · 社区共享码池</span>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
