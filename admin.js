@@ -5,7 +5,10 @@
 (() => {
   'use strict';
 
-  const ADMIN_PASSWORD = 'admin123';
+  // 管理密码的 SHA-256 哈希（明文不存储在前端，避免源码泄露密码）
+  // 修改密码请用 Node 生成新哈希并替换:
+  // node -e "console.log(require('crypto').createHash('sha256').update('你的新密码').digest('hex'))"
+  const ADMIN_PASSWORD_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9';
   const SESSION_KEY = 'muse_admin_session';
   const STORAGE_KEY = 'muse_codes_v4';
   const FEATURED_KEY = 'muse_featured_v2';
@@ -60,8 +63,15 @@
   }
 
   function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === '1'; }
-  function login(pwd) {
-    if (pwd === ADMIN_PASSWORD) {
+  async function sha256(str) {
+    const buf = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function login(pwd) {
+    const hash = await sha256(pwd);
+    if (hash === ADMIN_PASSWORD_HASH) {
       sessionStorage.setItem(SESSION_KEY, '1');
       return true;
     }
@@ -188,10 +198,11 @@
   }
 
   function bindEvents() {
-    $('#loginForm').addEventListener('submit', (e) => {
+    $('#loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const pwd = $('#loginPwd').value;
-      if (login(pwd)) showAdmin();
+      const ok = await login(pwd);
+      if (ok) showAdmin();
       else { toast('密码错误'); $('#loginPwd').value = ''; }
     });
     $('#addFeaturedBtn').addEventListener('click', addFeatured);
