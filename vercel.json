@@ -27,9 +27,12 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    },
+    {
+      "source": "/admin.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
     }
-  ],
-  "redirects": [
-    { "source": "/admin", "destination": "/admin.html", "permanent": false }
   ]
 }
